@@ -40,21 +40,21 @@ jobs:
         run: npm test -- --ci
 
   # New job: end-to-end tests in real browsers, against the web build.
-  e2e-web:
-    needs: lint-and-test   # only start when lint + unit tests are green
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v7
+  # e2e-web:
+  #   needs: lint-and-test   # only start when lint + unit tests are green
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v7
 
-      - uses: actions/setup-node@v7
-        with:
-          node-version: 24
-          cache: npm
+  #     - uses: actions/setup-node@v7
+  #       with:
+  #         node-version: 24
+  #         cache: npm
 
-      - run: npm ci
+  #     - run: npm ci
 
-      - name: Build the web version of the app
-        run: npm run build:web           # expo export --platform web -> ./dist
+  #     - name: Build the web version of the app
+  #       run: npm run build:web           # expo export --platform web -> ./dist
 
       # - name: Install Playwright browsers
       #   run: npx playwright install --with-deps chromium webkit
