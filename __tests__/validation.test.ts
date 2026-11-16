@@ -9,6 +9,9 @@ describe('isValidEmail', () => {
   it('rejects an address without @', () => {
     expect(isValidEmail('student.school.nl')).toBe(false);
   });
+  it('rejects an address with a space', () => {
+    expect(isValidEmail('stud ent@school.nl')).toBe(true);
+  });
 });
 
 describe('validateLogin', () => {
